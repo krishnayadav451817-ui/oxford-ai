@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oxford AI</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;background:#080d18;color:white;
+ font-family:Arial,sans-serif;
+}
+header{
+ padding:20px;background:#101a2c;
+ border-bottom:1px solid #263957;
+ color:#55aaff;font-size:25px;font-weight:bold;
+}
+main{max-width:700px;margin:auto;padding:20px}
+h2{text-align:center;margin-top:35px}
+p{text-align:center;color:#9eabc0}
+#chat{
+ height:55vh;overflow-y:auto;
+ padding:12px;background:#101a2c;
+ border-radius:14px;margin-top:25px;
+}
+.msg{
+ padding:12px;margin:10px 0;
+ border-radius:12px;line-height:1.5;
+ background:#23344e;
+ overflow-wrap:anywhere;
+}
+.user{background:#0756a5;text-align:right}
+.controls{display:flex;gap:8px;margin-top:15px}
+input{
+ flex:1;min-width:0;padding:15px;
+ border:1px solid #345477;border-radius:12px;
+ background:#101a2c;color:white;font-size:16px;
+}
+button{
+ border:0;border-radius:12px;padding:14px;
+ background:#087cff;color:white;font-weight:bold;
+}
+footer{text-align:center;color:#78879e;margin-top:20px}
+</style>
+</head>
+<body>
+<header>🤖 Oxford AI</header>
+<main>
+<h2>How can I help you?</h2>
+<p>Your Personal AI Assistant</p>
+<div id="chat">
+<div class="msg">Hello! Welcome to Oxford AI. How can I help you?</div>
+</div>
+<div class="controls">
+<input id="question" placeholder="Ask anything...">
+<button onclick="send()">Send</button>
+</div>
+<footer>Oxford AI • Your Smart Assistant</footer>
+</main>
+<script>
+function send(){
+ const input=document.getElementById("question");
+ const chat=document.getElementById("chat");
+ const q=input.value.trim();
+ if(!q)return;
+ chat.innerHTML+='<div class="msg user"></div>';
+ chat.lastElementChild.textContent=q;
+ chat.innerHTML+='<div class="msg">Thanks for your question! AI connection is coming soon.</div>';
+ input.value="";
+ chat.scrollTop=chat.scrollHeight;
+}
+</script>
+</body>
+</html>
